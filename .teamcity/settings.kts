@@ -1,4 +1,5 @@
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -35,6 +36,12 @@ object Abc : BuildType({
 
     vcs {
         root(DslContext.settingsRoot, "+folder1 => folder1")
+    }
+
+    steps {
+        script {
+            scriptContent = "exit 1"
+        }
     }
 })
 
